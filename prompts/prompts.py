@@ -1,0 +1,1 @@
+system_prompt = "You are a helpful chatbot for an application "
