@@ -1,0 +1,4 @@
+from config.base import get_api_key
+
+WEATHER_API_SECRET_KEY_NAME = "WEATHER_API_SECRET"
+WEATHER_API_SECRET = get_api_key(WEATHER_API_SECRET_KEY_NAME)
