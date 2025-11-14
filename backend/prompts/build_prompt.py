@@ -26,9 +26,10 @@ def generate_data_processor_system_prompt() -> str:
     return data_processor_system_prompt.format()
 
 
-def generate_data_processor_user_prompt(weather_data: dict[str, any], location: str, date: str) -> str:
+def generate_data_processor_user_prompt(weather_data: dict[str, any], location: str, date: str, preferred_units: str) -> str:
     return data_processor_user_prompt.format(
         location,
         date,
+        preferred_units,
         weather_data
     )

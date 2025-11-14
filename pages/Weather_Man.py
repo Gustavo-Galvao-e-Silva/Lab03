@@ -8,11 +8,11 @@ from config.gemini import data_processor_model
 st.set_page_config(page_title="Weather Man", layout="wide")
 
 st.title("Weather Man")
-st.header("Your friendly weather man. Enter a location and date to receive a detailed weather overview.")
+st.write("Hey! I'm your friendly weather man. Enter a location and date to receive a detailed weather overview!")
 
 with st.container():
     st.write("### Enter Forecast Details")
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         location = st.text_input(
@@ -29,6 +29,12 @@ with st.container():
             min_value="today",
             max_value=datetime.now().date() + timedelta(days=6),
         )
+    with col3:
+        preferred_units = st.selectbox(
+            label="Units",
+            options=["Imperial", "Metric"],
+            index=0
+        )
 
 center_button = st.columns([4, 1, 4])[1]
 with center_button:
@@ -37,7 +43,7 @@ with center_button:
 if get_forecast:
     with st.spinner("Fetching weather data..."):
         weather_info = get_weather_info(location, date.strftime("%Y-%m-%d"))
-        prompt = generate_data_processor_user_prompt(weather_info, location, date)
+        prompt = generate_data_processor_user_prompt(weather_info, location, date, preferred_units)
         response = invoke_gemini_data_processor_model(data_processor_model, prompt)
 
     st.markdown("---")

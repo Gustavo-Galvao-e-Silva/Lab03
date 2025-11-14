@@ -14,7 +14,7 @@ TOOLS_LIST: list[Tool] = [
     Tool(
         name="get_weather_info",
         function=get_weather_info,
-        description="Fetches 7-day hourly weather forecast data for a specific location. Returns temperature, humidity, cloud cover, wind speed, precipitation, snowfall, and precipitation probability.",
+        description="Fetches 7-day hourly weather forecast data for a specific location. Returns temperature (in Celsius), relative humidity, cloud cover, wind speed (in km/h), precipitation in the last hour (in mm), snowfall in the last hour (in mm), and precipitation probability.",
         params={
             "location": {
                 "type": "string",

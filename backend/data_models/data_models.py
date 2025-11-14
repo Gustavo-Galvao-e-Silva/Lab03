@@ -17,13 +17,11 @@ class Tool:
             required = "REQUIRED" if param_info.get("required", False) else "OPTIONAL"
             info.append(f"  - `{param_name}` ({param_info['type']}, {required}): {param_info['description']}")
 
-        # Constraints
         if self.constraints:
             info.append("")
             info.append("Constraints:")
             info.append(f"  {self.constraints}")
 
-        # Usage examples
         if self.usage_examples:
             info.append("")
             info.append("Use when:")
